@@ -45,9 +45,13 @@ class DbConnector {
 
   public async disconnect() {
     if (this.isConnected) {
-      await this.client.end();
-      this.isConnected = false;
-      console.log("Disconnect from database");
+      try {
+        await this.client.end();
+        this.isConnected = false;
+        console.log("Disconnect from database");
+      } catch (error) {
+        console.error("Database disconnection error:", error);
+      }
     }
   }
 }

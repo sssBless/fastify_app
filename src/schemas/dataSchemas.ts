@@ -4,13 +4,13 @@ export const dataQuerySchema = {
     table: {
       type: "string",
       pattern: "^[a-zA-Z_]+$",
-      description: "Название таблицы, обязательный параметр",
+      description: "Table name, required parameter",
     },
     columns: {
       type: "string",
-      pattern: "^(\\*|[a-zA-Z0-9_,]+)$", // Разрешаем значение "*" или список колонок
+      pattern: "^(\\*|[a-zA-Z0-9_,]+)$",
       default: "*",
-      description: "Список названий колонок через запятую, по умолчанию все",
+      description: "List of column names separated by commas, defaults to all",
     },
     limit: {
       oneOf: [
@@ -19,7 +19,7 @@ export const dataQuerySchema = {
       ],
       default: 100,
       description:
-        "Число или 'false', ограничивает количество записей, по умолчанию 100",
+        "Number or 'false', limits the number of entries, defaults to 100",
     },
   },
   required: ["table"],
