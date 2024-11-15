@@ -2,20 +2,14 @@ import * as dotenv from "dotenv";
 
 dotenv.config();
 
-const {
-  DATABASE_HOST,
-  DATABASE_PORT,
-  DATABASE_USER,
-  DATABASE_PASSWORD,
-  DATABASE_NAME,
-} = process.env;
+const { DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_NAME } = process.env;
 
 const dbConfig = {
-  host: DATABASE_HOST || "localhost",
-  port: Number(DATABASE_PORT) || 5432,
-  user: DATABASE_USER || "sssbless",
-  password: DATABASE_PASSWORD || "newpassword",
-  database: DATABASE_NAME || "fastify_app",
+  host: DB_HOST || "localhost",
+  port: Number(DB_PORT) || 5432,
+  user: DB_USER || "sssbless",
+  password: DB_PASSWORD || "newpassword",
+  database: DB_NAME || "fastify_app",
 };
 
 export default dbConfig;
